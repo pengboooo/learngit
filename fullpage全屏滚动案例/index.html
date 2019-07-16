@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>彭搏的fullpage使用案例</title>
+	<link rel="stylesheet" href="css/examples.css">
+	<link rel="stylesheet" href="css/fullpage.min.css">
+
+	<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900"> -->
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.fullPage.min.js"></script>
+	<script src="js/index.js"></script>
+	<link rel="stylesheet" href="css/index.css">
+	<style>
+		.intro p {
+			color: #fff;
+			font-family: 'Source Sans Pro', sans-serif;
+		}
+
+		.intro p {
+			text-shadow: -1px 1px 8px rgba(0, 0, 0, .8);
+		}
+
+		#section1 {
+			background: url("images/bg1.png")center center
+		}
+
+		#slide1-1 .fp-bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: url('images/bg1-3.png') center no-repeat;
+
+			z-index: 1;
+			opacity: 0;
+		}
+
+		#slide1-1 .top {
+			position: absolute;
+			top: 30px;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 60;
+			width: 169px;
+			height: 65px;
+			background: url("images/logo.png") 0 0 no-repeat;
+		}
+
+		#slide1-1 .r1 {
+			z-index: 2;
+			position: absolute;
+			top: 13px;
+			right: -655px;
+			width: 655px;
+			height: 658px;
+			background: url("images/r1.png") 0 0 no-repeat;
+		}
+
+		#slide1-1 .qtcode {
+			z-index: 3;
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			width: 361px;
+			height: 69px;
+			background: url("images/qtcode.png") 0 0 no-repeat;
+
+		}
+
+		#slide1-1 .l1 {
+			position: absolute;
+			left: -444px;
+			top: 53px;
+			width: 444px;
+			height: 514px;
+			background: url("images/l1.png") center center no-repeat;
+		}
+
+
+		#fp-nav ul {
+			position: absolute;
+			right: 20px;
+			top: 50%;
+			transform: translateY(-50%)
+		}
+
+		#fp-nav ul li {
+			margin-top: 20px;
+		}
+
+		#fp-nav ul li a span {
+			background-color: transparent;
+		}
+
+		#fp-nav ul li a.active {
+			background-position: center 0;
+		}
+
+		#fp-nav ul li a {
+			display: block;
+			height: 27px;
+			padding-right: 30px;
+			line-height: 27px;
+			background: url(images/dot.png) center -34px no-repeat;
+			color: #fff;
+			text-align: right;
+			text-shadow: 1px 1px 0px #333;
+			text-decoration: none;
+			overflow: hidden;
+		}
+
+		/*
+* Setting the backgrounds for each section / slide
+*/
+		#section2 {
+
+			background: url("images/bg2.png");
+		}
+
+		#section2 .fp-bg .bg {
+			position: absolute;
+			top: 100px;
+			width: 100%;
+			height: 100%;
+			background: url("images/bg2-3.png") center center no-repeat;
+		}
+
+		#section2 .fp-bg .top {
+			position: absolute;
+			z-index: 100;
+			top: 30px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 326px;
+			height: 86px;
+			background: url("images/logo.png") 0 -100px no-repeat;
+		}
+
+
+		/* #section4 .fp-bg:before,
+#section2 .fp-bg:before {
+    content: '';
+    position: absolute;
+    display: block;
+    background: rgba(173, 173, 173, 0.2);
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+} */
+
+
+
+		#section2 .fp-bg .l2 {
+			position: absolute;
+			left: -830px;
+			top: 53px;
+			width: 830px;
+			height: 558px;
+			background: url("images/l2.png") center center no-repeat;
+		}
+
+		#section2 .fp-bg .l2 .l2-1 {
+			position: absolute;
+			top: 53px;
+			left: 0;
+			width: 500px;
+			height: 400px;
+			background: url("images/l2-1.png") 0 0 no-repeat;
+			z-index: 11;
+			opacity: 0;
+		}
+
+		#section2 .fp-bg .l2 .l2-2 {
+			position: absolute;
+			top: 85px;
+			left: 0;
+			width: 510px;
+			height: 396px;
+			background: url("images/l2-2.png") 0 0 no-repeat;
+			z-index: 12;
+			opacity: 0;
+		}
+
+		/* #section2 .fp-bg .hands {
+			position: absolute;
+			top: 140px;
+			right: -331px;
+			width: 331px;
+			height: 194px;
+			z-index: 60;
+		} */
+
+
+		#section2 .fp-bg .tip {
+			top: 140px;
+			width: 331px;
+			height: 194px;
+			right: -331px;
+			position: absolute;
+			background: url("images/tip.png") 0 0 no-repeat;
+			z-index: 60;
+		}
+
+		#section2 .fp-bg .hand {
+			top: 140px;
+			width: 331px;
+			height: 194px;
+			right: -331px;
+			position: absolute;
+			background: url("images/hand.png") 0 0 no-repeat;
+			z-index: 60;
+
+		}
+
+		#section2 .fp-bg .qtcode {
+			z-index: 3;
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			width: 361px;
+			height: 69px;
+			background: url("images/qtcode.png") 0 0 no-repeat;
+		}
+
+		#section2 .fp-bg .r2 {
+			z-index: 2;
+			position: absolute;
+			top: 13px;
+			right: -593px;
+			width: 655px;
+			height: 658px;
+			background: url("images/r2.png") 0 0 no-repeat;
+		}
+
+
+		/**
+*这是第三板块的样式
+*
+*/
+		#section3 {
+
+			background: url("images/bg3.png");
+		}
+
+		#slide3-1 .fp-bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+
+
+			z-index: 1;
+		}
+
+		#slide3-1 .one {
+			background: url('images/bg3-3.png') center no-repeat;
+
+		}
+
+		#slide3-1 .two {
+
+			background: url('images/bg3-4.png') center no-repeat;
+			opacity: 0;
+		}
+
+		#slide3-1 .top {
+			position: absolute;
+			top: 30px;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 60;
+			width: 260px;
+			height: 70px;
+			background: url("images/logo.png") 0 -195px no-repeat;
+		}
+
+		#slide3-1 .r1 {
+			z-index: 2;
+			position: absolute;
+			top: 0;
+			right: -655px;
+			width: 655px;
+			height: 658px;
+			background: url("images/r3.png") 0 0 no-repeat;
+		}
+
+		#slide3-1 .qtcode {
+			z-index: 3;
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			width: 361px;
+			height: 69px;
+			background: url("images/qtcode.png") 0 0 no-repeat;
+		}
+
+		#slide3-1 .l1 {
+			position: absolute;
+			left: -602px;
+			top: 170px;
+			width: 602px;
+			height: 244px;
+			background: url("images/l3.png") center center no-repeat;
+			z-index: 60;
+		}
+
+		/**
+*这是第四板块的样式
+*
+*/
+
+		#section4 {
+
+			background: url("images/bg4.png");
+		}
+
+		#slide4-1 .top {
+			position: absolute;
+			top: 30px;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 60;
+			width: 260px;
+			height: 70px;
+			background: url("images/logo.png") 0 -286px no-repeat;
+		}
+
+		#slide4-1 .qtcode {
+			z-index: 3;
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			width: 361px;
+			height: 69px;
+			background: url("images/qtcode.png") 0 0 no-repeat;
+		}
+
+		#slide4-1 .r1 {
+			z-index: 2;
+			position: absolute;
+			top: 120px;
+			right: -655px;
+			width: 655px;
+			height: 658px;
+			background: url("images/r4.png") 0 0 no-repeat;
+		}
+
+		#slide4-1 .l4 {
+			position: absolute;
+			left: -524px;
+			top: 0;
+			width: 524px;
+			height: 636px;
+			background: url("images/l4.png") center center no-repeat;
+			z-index: 60;
+		}
+
+		#slide4-1 .l4 .l4-1 {
+			position: absolute;
+			top: 10px;
+			left: 0px;
+			width: 524px;
+			height: 636px;
+			background: url("images/l4-1.png") 0 0 no-repeat;
+			z-index: 11;
+			opacity: 0;
+		}
+
+		#slide4-1 .l4 .l4-2 {
+			position: absolute;
+			top: 10px;
+			left: 90px;
+			width: 524px;
+			height: 636px;
+			background: url("images/l4-2.png") 0 0 no-repeat;
+			z-index: 11;
+			opacity: 0;
+		}
+
+		#slide4-1 .l4 .l4-3 {
+			position: absolute;
+			top: 178px;
+			left: 115px;
+			width: 524px;
+			height: 636px;
+			background: url("images/l4-4.png") 0 0 no-repeat;
+			z-index: 11;
+			opacity: 0;
+		}
+
+		#slide4-1 .l4 .l4-4 {
+			position: absolute;
+			top: 290px;
+			left: 305px;
+			width: 524px;
+			height: 636px;
+			background: url("images/l4-5.png") 0 0 no-repeat;
+			z-index: 11;
+			opacity: 0;
+		}
+
+		#slide4-1 .l4 .l4-5 {
+			position: absolute;
+			top: 153px;
+			left: 0px;
+			width: 710px;
+			height: 372px;
+			background: url("images/l4-3.png") 0 0 no-repeat;
+			z-index: 11;
+			opacity: 0;
+		}
+
+		#slide4-1 .l4 .l4-6 {
+			position: absolute;
+			top: 273px;
+			left: 325px;
+			width: 40px;
+			height: 40px;
+			background: url("images/s4-l4.png") no-repeat center center;
+			background-size: cover;
+			z-index: 11;
+			animation: dian 2s infinite linear 4.5s;
+			opacity: 0;
+
+
+
+		}
+
+		/**
+*这是第五板块的样式
+*
+*/
+		#section5 {
+			background: url("images/bg5.png");
+		}
+
+		#slide5-1 .fp-bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+
+
+			z-index: 1;
+		}
+
+		#slide5-1 .one {
+			width: 100%;
+			height: 3000px;
+			top: -60px;
+			background: url('images/bg5-3.png') center center repeat-y;
+		}
+
+		#slide5-1 .two {
+			background: url('images/bg5-4.png') -110px 0 no-repeat;
+		}
+
+		#slide5-1 .top {
+			position: absolute;
+			top: 30px;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 60;
+			width: 260px;
+			height: 70px;
+			background: url("images/logo.png") 0 -370px no-repeat;
+		}
+
+		#slide5-1 .qtcode {
+			z-index: 3;
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
+			width: 361px;
+			height: 69px;
+			background: url("images/qtcode.png") 0 0 no-repeat;
+		}
+
+		#slide5-1 .l1 {
+			position: absolute;
+			left: -558px;
+			top: 90px;
+			width: 588px;
+			height: 505px;
+			background: url("images/l5.png") center center no-repeat;
+			z-index: 60;
+		}
+
+		#slide5-1 .r1 {
+			z-index: 2;
+			position: absolute;
+			top: 120px;
+			right: -655px;
+			width: 655px;
+			height: 658px;
+			background: url("images/r5.png") 0 0 no-repeat;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div id="myContainer">
+
+		<div class="section" id="section1">
+			<div class="slide" id="slide1-1">
+				<div class="fp-bg"></div>
+				<div class="top"></div>
+				<div class="r1"></div>
+				<div class="qtcode"></div>
+				<div class="l1"></div>
+			</div>
+
+		</div>
+		<div class="section" id="section2">
+			<div class="fp-bg" id="section2">
+				<div class="bg"></div>
+				<div class="top"></div>
+				<div class="l2">
+					<div class="l2-1"></div>
+					<div class="l2-2"></div>
+				</div>
+				<!-- <div class="hands"> -->
+				<div class="tip"></div>
+				<div class="hand"></div>
+				<!-- </div> -->
+
+				<div class="r2"></div>
+				<div class="qtcode"></div>
+			</div>
+
+		</div>
+		<div class="section" id="section3">
+			<div class="slide" id="slide3-1">
+
+				<div class="fp-bg one"></div>
+				<div class="fp-bg two"></div>
+				<div class="top"></div>
+				<div class="r1"></div>
+				<div class="qtcode"></div>
+				<div class="l1"></div>
+			</div>
+
+		</div>
+		<div class="section" id="section4">
+			<div class="slide" id="slide4-1">
+
+
+				<div class="top"></div>
+				<div class="r1"></div>
+				<div class="qtcode"></div>
+				<div class="l4">
+					<div class="l4-1"></div>
+					<div class="l4-2"></div>
+					<div class="l4-3"></div>
+					<div class="l4-4"></div>
+					<div class="l4-5"></div>
+					<div class="l4-6"></div>
+
+				</div>
+			</div>
+		</div>
+		<div class="section" id="section5">
+			<div class="slide" id="slide5-1">
+				<div class="fp-bg one">
+
+				</div>
+				<div class="fp-bg two">
+
+				</div>
+				<div class="top"></div>
+				<div class="r1"></div>
+				<div class="qtcode"></div>
+				<div class="l1"></div>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="js/fullpage.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		new fullpage('#myContainer', {
+			//   sectionsColor: ['#084eb4', '#598500', '#f2263e', '#7231a6','yellow'] ,
+
+			navigation: true, //是否显示导航栏
+			navigationPosition: 'right', //导航圆点显示位置
+			fitToSection: true, //自适应空间
+			resize: true, //字体随页面的缩放而缩放
+			loopBottom: true, //滚到最后一个的时候显示第一个
+			afterLoad: function (anchorLink, index) {
+				//滚动到第一屏的时候
+				if (index.index == 0) {
+					$(function () {
+
+
+						$("#slide1-1 .l1").animate({
+							left: "130px"
+						}, 2000)
+						$("#slide1-1 .r1").animate({
+							right: "95px"
+						}, 2000)
+						$("#slide1-1 .fp-bg").delay(2000).animate({
+							opacity: "1"
+						}, 1000)
+					})
+				}
+
+				//滚动到第二屏
+				if (index.index==1) {
+					$(function () {
+						$("#section2 .fp-bg .l2").animate({
+							left: "100px"
+						}, 2000)
+						$("#section2 .fp-bg .r2").animate({
+							right: "30px"
+						}, 2000)
+						$("#section2 .fp-bg .bg").animate({
+							top: "0"
+						}, 2000)
+						$("#section2 .fp-bg .l2 .l2-1").delay(2000).animate({
+							opacity: "1"
+						}, 2000)
+						$("#section2 .fp-bg .l2 .l2-2").delay(3000).animate({
+							opacity: "1",
+							top: "5px",
+							left: "40px"
+						}, 2000,
+						 function () {
+							$("#section2 .fp-bg .hand").animate({
+								right: "783px"
+							}, 1000,
+							 function () {
+
+								$(this).animate({
+									right: "-331px"
+								}, 1000)
+
+							})
+							$("#section2 .fp-bg .tip").animate({
+								right: "783px"
+							}, 1000, )
+						})
+
+
+
+
+
+
+
+					})
+				}
+				//滚动到第三屏
+				if (index.index == 2) {
+					$(function () {
+
+						$("#slide3-1 .l1").animate({
+							left: "130px"
+						}, 2000)
+						$("#slide3-1 .r1").animate({
+							right: "0px"
+						}, 2000)
+						$("#slide3-1 .fp-bg").animate({
+							opacity: "1"
+						}, 2000)
+
+					})
+				}
+
+				//滚动到第四屏
+				if (index.index == 3) {
+					$(function () {
+
+
+						$("#slide4-1 .l4").finish().animate({
+							left: "110px"
+						}, 2000)
+						$("#slide4-1 .l4 .l4-1").delay(2000).animate({
+							left: "60px",
+							opacity: "1"
+						}, 1000)
+						$("#slide4-1 .l4 .l4-2").delay(3000).animate({
+							left: "169px",
+							opacity: "1"
+						}, 1000)
+						$("#slide4-1 .l4 .l4-4").delay(4000).animate({
+
+							opacity: "1"
+						}, 1000)
+						$("#slide4-1 .l4 .l4-5").delay(5000).animate({
+
+							opacity: "1"
+						}, 1000)
+						$("#slide4-1 .l4 .l4-3").delay(5000).animate({
+
+							opacity: "1"
+						}, 1000)
+						$("#slide4-1 .l4 .l4-6").delay(6000).animate({
+							opacity: "1"
+						}, 1000)
+
+						$("#slide4-1 .r1").animate({
+							right: "0px"
+						}, 2000)
+						//小手点击位置加载页面出现放大
+
+						var a = setInterval(function () {
+
+							$(".l4-6").animate({
+								width: "80px",
+								height: "80px",
+								top: "253px",
+								left: "305px"
+							}, 2000, function () {
+								$(".l4-6").css({
+									width: "40px",
+									height: "40px",
+									top: "273px",
+									left: "325px"
+								})
+							});
+
+
+
+						}, 50)
+						window.names = a;
+					})
+
+
+
+				}
+				//滚动到第五屏
+				if (index.index == 4) {
+					$(function () {
+
+						//背景泡泡向上升
+						setInterval(function () {
+							console.log($("#slide5-1 .one").animate({
+								"backgroundPosition": "0 -600px"
+							}, 2000));
+
+							$("#slide5-1 .one").animate({
+								"top": "-1000px"
+							}, 8000, function () {
+								$(this).css({
+									"top": "-60px"
+								})
+							})
+
+
+
+
+
+						}, 0)
+						$("#slide5-1 .l1").animate({
+							left: "90px"
+						}, 2000)
+						$("#slide5-1 .r1").animate({
+							right: "0px"
+						}, 2000)
+
+
+					})
+				}
+
+
+
+			},
+			onLeave: function (index, nextIndex, direction) {
+				//离开第一屏
+
+				if (index.index == 0) {
+					$(function () {
+						$("#slide1-1 .l1").animate({
+							left: -$(this).width()
+						}, 1000)
+						$("#slide1-1 .r1").animate({
+							right: -$(this).width()
+						}, 1000)
+
+						$("#slide1-1 .fp-bg").animate({
+							opacity: "0"
+						}, 1000)
+
+					})
+
+				}
+				//离开第二屏
+				if (index.index == 1) {
+					$(function () {
+						$("#section2 .fp-bg .l2").animate({
+							left: -$(this).width()
+						}, 50)
+						$("#section2 .fp-bg .r2").animate({
+							right: -$(this).width()
+						}, 50)
+						$("#section2 .fp-bg .bg").animate({
+							top: "100px"
+						}, 50)
+						$("#section2 .fp-bg .l2 .l2-1").animate({
+							opacity: "0"
+						}, 50)
+						$("#section2 .fp-bg .l2 .l2-2").animate({
+							opacity: "0",
+							top: "85px",
+							left: "0px"
+						}, 50)
+						$("#section2 .fp-bg .tip").animate({
+							right: "-331px"
+						}, 50)
+
+					})
+				}
+				//离开第三屏
+				if (index.index == 2) {
+					$(function () {
+						$("#slide3-1 .l1").animate({
+							left: -$(this).width()
+						}, 2000)
+						$("#slide3-1 .r1").animate({
+							right: -$(this).width()
+						}, 2000)
+						$("#slide3-1 .fp-bg").animate({
+							opacity: "0"
+						}, 2000)
+					})
+
+				}
+				//离开第四屏
+				if (index.index == 3) {
+					$(function () {
+						$("#slide4-1 .l4").animate({
+							left: -$(this).width()
+						}, 2000)
+						$("#slide4-1 .l4").animate({
+							left: "110px"
+						}, 2000)
+						$("#slide4-1 .l4 .l4-1").animate({
+							left: "0px",
+							opacity: "0"
+						}, 1000)
+						$("#slide4-1 .l4 .l4-2").animate({
+							left: "90px",
+							opacity: "0"
+						}, 1000)
+						$("#slide4-1 .l4 .l4-4").animate({
+
+							opacity: "0"
+						}, 1000)
+						$("#slide4-1 .l4 .l4-5").animate({
+
+							opacity: "0"
+						}, 1000)
+						$("#slide4-1 .l4 .l4-3").animate({
+
+							opacity: 0
+						}, 1000)
+
+						$("#slide4-1 .l4").animate({
+							left: -$(this).width()
+						}, 2000)
+
+
+						$("#slide4-1 .r1").animate({
+							right: -$(this).width()
+						}, 1000)
+						$("#slide4-1 .l4 .l4-6").delay(1000).stop(true, true).animate({
+
+							opacity: 0,
+						}, 0, function () {
+
+							// console.log(window.names);
+
+							clearInterval(window.names);
+						})
+					})
+				}
+				//离开第五屏
+				if (index.index == 4) {
+					$(function () {
+						$("#slide5-1 .l1").animate({
+							left: -$(this).width()
+						}, 2000)
+						$("#slide5-1 .r1").animate({
+							right: -$(this).width()
+						}, 2000)
+					})
+				}
+			}
+		});
+	</script>
+
+</body>
+
+</html>
