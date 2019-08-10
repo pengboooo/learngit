@@ -237,6 +237,28 @@
 			height: 658px;
 			background: url("images/r2.png") 0 0 no-repeat;
 		}
+		#section2 .fp-bg .r2 .iPhone a{
+			display: block;
+			width: 270px;
+			height: 50px;
+			position: absolute;
+			top: 230px;
+			left: 20px;
+			
+			border-radius: 25px;
+			
+			
+		}
+		#section2 .fp-bg .r2 .Android a{
+			display: block;
+			width: 270px;
+			height: 50px;
+			position: absolute;
+			top: 310px;
+			left: 77px;
+			
+			border-radius: 25px;
+		}
 
 
 		/**
@@ -310,6 +332,28 @@
 			background: url("images/l3.png") center center no-repeat;
 			z-index: 60;
 		}
+		#slide3-1 .l1 .iPhone a{
+			display: block;
+			width: 270px;
+			height: 50px;
+			position: absolute;
+			top: 185px;
+			left: 20px;
+			border: 1px solid red;
+			border-radius: 25px;
+			
+			
+		}
+		#slide3-1 .l1 .Android a{
+			display: block;
+			width: 270px;
+			height: 50px;
+			position: absolute;
+			top: 185px;
+			right: 22px;
+			border: 1px solid red;
+			border-radius: 25px;
+		}
 
 		/**
 *这是第四板块的样式
@@ -350,6 +394,29 @@
 			width: 655px;
 			height: 658px;
 			background: url("images/r4.png") 0 0 no-repeat;
+			z-index: 70;
+		}
+		#slide4-1 .r1 .iPhone a{
+			display: block;
+			width: 270px;
+			height: 50px;
+			position: absolute;
+			top: 280px;
+			left: 20px;
+			
+			border-radius: 25px;
+			
+			
+		}
+		#slide4-1 .r1 .Android a{
+			display: block;
+			width: 270px;
+			height: 50px;
+			position: absolute;
+			top: 280px;
+			right: 75px;
+			
+			border-radius: 25px;
 		}
 
 		#slide4-1 .l4 {
@@ -502,6 +569,27 @@
 			width: 655px;
 			height: 658px;
 			background: url("images/r5.png") 0 0 no-repeat;
+			
+		}
+		#slide5-1 .r1 .iPhone a{
+			display: block;
+			width: 270px;
+			height: 50px;
+			position: absolute;
+			top: 350px;
+			left: 20px;
+			
+			border-radius: 25px;
+		}
+		#slide5-1 .r1 .Android a{
+			display: block;
+			width: 270px;
+			height: 50px;
+			position: absolute;
+			top: 350px;
+			right: 75px;
+			
+			border-radius: 25px;
 		}
 	</style>
 
@@ -534,7 +622,10 @@
 				<div class="hand"></div>
 				<!-- </div> -->
 
-				<div class="r2"></div>
+				<div class="r2">
+					<div class="iPhone"><a href="javascript:void(0)"></a></div>
+					<div class="Android"><a href="javascript:void(0)"></a></div>
+				</div>
 				<div class="qtcode"></div>
 			</div>
 
@@ -547,7 +638,10 @@
 				<div class="top"></div>
 				<div class="r1"></div>
 				<div class="qtcode"></div>
-				<div class="l1"></div>
+				<div class="l1">
+					<div class="iPhone"><a href="javascript:void(0)"></a></div>
+					<div class="Android"><a href="javascript:void(0)"></a></div>
+				</div>
 			</div>
 
 		</div>
@@ -556,7 +650,10 @@
 
 
 				<div class="top"></div>
-				<div class="r1"></div>
+				<div class="r1">
+					<div class="iPhone"><a href="javascript:void(0);"></a></div>
+					<div class="Android"><a href="javascript:void(0);"></a></div>
+				</div>
 				<div class="qtcode"></div>
 				<div class="l4">
 					<div class="l4-1"></div>
@@ -578,7 +675,10 @@
 
 				</div>
 				<div class="top"></div>
-				<div class="r1"></div>
+				<div class="r1">
+					<div class="iPhone"><a href="javascript:void(0)"></a></div>
+					<div class="Android"><a href="javascript:void(0)"></a></div>
+				</div>
 				<div class="qtcode"></div>
 				<div class="l1"></div>
 			</div>
@@ -595,9 +695,11 @@
 			navigationPosition: 'right', //导航圆点显示位置
 			fitToSection: true, //自适应空间
 			resize: true, //字体随页面的缩放而缩放
-			loopBottom: true, //滚到最后一个的时候显示第一个
+			 loopBottom: true, //滚到最后一个的时候显示第一个
 			afterLoad: function (anchorLink, index) {
 				//滚动到第一屏的时候
+				console.log(index);
+				
 				if (index.index == 0) {
 					$(function () {
 
@@ -637,14 +739,9 @@
 						 function () {
 							$("#section2 .fp-bg .hand").animate({
 								right: "783px"
-							}, 1000,
-							 function () {
-
-								$(this).animate({
+							}, 1000,).animate({
 									right: "-331px"
 								}, 1000)
-
-							})
 							$("#section2 .fp-bg .tip").animate({
 								right: "783px"
 							}, 1000, )
@@ -779,16 +876,16 @@
 
 				if (index.index == 0) {
 					$(function () {
-						$("#slide1-1 .l1").animate({
+						$("#slide1-1 .l1").stop(true,true).animate({
 							left: -$(this).width()
-						}, 1000)
+						}, 500)
 						$("#slide1-1 .r1").animate({
 							right: -$(this).width()
-						}, 1000)
+						}, 500)
 
 						$("#slide1-1 .fp-bg").animate({
 							opacity: "0"
-						}, 1000)
+						}, 500)
 
 					})
 
@@ -796,83 +893,83 @@
 				//离开第二屏
 				if (index.index == 1) {
 					$(function () {
-						$("#section2 .fp-bg .l2").animate({
+						$("#section2 .fp-bg .l2").stop(true,true).animate({
 							left: -$(this).width()
-						}, 50)
-						$("#section2 .fp-bg .r2").animate({
+						}, 500)
+						$("#section2 .fp-bg .r2").stop(true,true).animate({
 							right: -$(this).width()
-						}, 50)
-						$("#section2 .fp-bg .bg").animate({
+						}, 500)
+						$("#section2 .fp-bg .bg").stop(true,true).animate({
 							top: "100px"
-						}, 50)
-						$("#section2 .fp-bg .l2 .l2-1").animate({
+						}, 500)
+						$("#section2 .fp-bg .l2 .l2-1").stop(true,true).animate({
 							opacity: "0"
-						}, 50)
-						$("#section2 .fp-bg .l2 .l2-2").animate({
+						}, 500)
+						$("#section2 .fp-bg .l2 .l2-2").stop(true,true).animate({
 							opacity: "0",
 							top: "85px",
 							left: "0px"
-						}, 50)
-						$("#section2 .fp-bg .tip").animate({
+						}, 500)
+						$("#section2 .fp-bg .tip").stop(true,true).animate({
 							right: "-331px"
-						}, 50)
+						}, 500)
 
 					})
 				}
 				//离开第三屏
 				if (index.index == 2) {
 					$(function () {
-						$("#slide3-1 .l1").animate({
+						$("#slide3-1 .l1").stop(true,true).animate({
 							left: -$(this).width()
-						}, 2000)
-						$("#slide3-1 .r1").animate({
+						}, 500)
+						$("#slide3-1 .r1").stop(true,true).animate({
 							right: -$(this).width()
-						}, 2000)
-						$("#slide3-1 .fp-bg").animate({
+						}, 500)
+						$("#slide3-1 .fp-bg").stop(true,true).animate({
 							opacity: "0"
-						}, 2000)
+						}, 500)
 					})
 
 				}
 				//离开第四屏
 				if (index.index == 3) {
 					$(function () {
-						$("#slide4-1 .l4").animate({
+						$("#slide4-1 .l4").stop(true,true).animate({
 							left: -$(this).width()
-						}, 2000)
-						$("#slide4-1 .l4").animate({
+						}, 500)
+						$("#slide4-1 .l4").stop(true,true).animate({
 							left: "110px"
-						}, 2000)
-						$("#slide4-1 .l4 .l4-1").animate({
+						}, 500)
+						$("#slide4-1 .l4 .l4-1").stop(true,true).animate({
 							left: "0px",
 							opacity: "0"
-						}, 1000)
-						$("#slide4-1 .l4 .l4-2").animate({
+						}, 500)
+						$("#slide4-1 .l4 .l4-2").stop(true,true).animate({
 							left: "90px",
 							opacity: "0"
-						}, 1000)
-						$("#slide4-1 .l4 .l4-4").animate({
+						}, 500)
+						$("#slide4-1 .l4 .l4-4").stop(true,true).animate({
 
 							opacity: "0"
-						}, 1000)
-						$("#slide4-1 .l4 .l4-5").animate({
+						}, 500)
+						$("#slide4-1 .l4 .l4-5").stop(true,true).animate({
 
 							opacity: "0"
-						}, 1000)
-						$("#slide4-1 .l4 .l4-3").animate({
+						}, 500)
+						$("#slide4-1 .l4 .l4-3").stop(true,true).animate({
 
 							opacity: 0
-						}, 1000)
+						}, 500)
 
-						$("#slide4-1 .l4").animate({
+						$("#slide4-1 .l4").stop(true,true).animate({
 							left: -$(this).width()
-						}, 2000)
+						}, 500)
 
 
-						$("#slide4-1 .r1").animate({
+						$("#slide4-1 .r1").stop(true,true).animate({
 							right: -$(this).width()
-						}, 1000)
-						$("#slide4-1 .l4 .l4-6").delay(1000).stop(true, true).animate({
+						}, 500)
+						$("#slide4-1 .l4 .l4-6").delay(500).stop(true, true).animate({
 
 							opacity: 0,
 						}, 0, function () {
@@ -886,12 +983,12 @@
 				//离开第五屏
 				if (index.index == 4) {
 					$(function () {
-						$("#slide5-1 .l1").animate({
+						$("#slide5-1 .l1").stop(true,true).animate({
 							left: -$(this).width()
-						}, 2000)
-						$("#slide5-1 .r1").animate({
+						}, 500)
+						$("#slide5-1 .r1").stop(true,true).animate({
 							right: -$(this).width()
-						}, 2000)
+						}, 500)
 					})
 				}
 			}
